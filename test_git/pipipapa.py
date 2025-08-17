@@ -15,3 +15,9 @@ print('sosal')
 print("sosal" * 2)
 
 print("чек ван чек ту проверяем тоси моси")
+
+def main():
+      sosalbek = int(input("сколько раз сосал махмуууд?"))
+      maga = print(f" мага сосал {sosalbek} раз ")
+      print(maga)
+
