@@ -11,3 +11,7 @@ def main():
     teacher.teach()
 
 print('sosal')
+
+print("sosal" * 2)
+
+print("чек ван чек ту проверяем тоси моси")
