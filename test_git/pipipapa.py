@@ -17,7 +17,10 @@ print("sosal" * 2)
 print("чек ван чек ту проверяем тоси моси")
 
 def main():
-      sosalbek = int(input("сколько раз сосал махмуууд?"))
-      maga = print(f" мага сосал {sosalbek} раз ")
-      print(maga)
+    sosalbek = int(input("Сколько раз сосал Махмуд? "))
+    maga = f"Мага сосал {sosalbek} раз"
+    print(maga)
+
+if __name__ == "__main__":
+    main()
 
