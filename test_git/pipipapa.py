@@ -24,3 +24,27 @@ def main():
 if __name__ == "__main__":
     main()
 
+def calculator():
+    while True:
+        try:
+            num1 = float(input("Введите первое число: "))
+            operator = input("Введите оператор (+, -, *, /): ")
+            num2 = float(input("Введите второе число: "))
+
+            if operator == "+":
+                result = num1 + num2
+            elif operator == "-":
+                result = num1 - num2
+            elif operator == "*":
+                result = num1 * num2
+            elif operator == "/":
+                result = num1 / num2
+            else:
+                print("Неверный оператор.")
+                continue
+
+            print(f"Результат: {result}")
+        except ValueError:
+            print("Пожалуйста, введите действительные числа.")
+        except ZeroDivisionError:
+            print("Ошибка: Деление на ноль недопустимо.")
