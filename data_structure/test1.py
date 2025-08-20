@@ -1,3 +1,5 @@
+#Линейный алгоритм - подходит для маленьких баз данных
+
 def locate_card(cards,number):
     position = 0 
 
@@ -29,4 +31,4 @@ for i, test in enumerate(tests):
         print(f'Test {i} passed')
     else:
         print(f"test {i} falied")
-        
+                

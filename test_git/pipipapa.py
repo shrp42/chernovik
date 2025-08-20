@@ -10,15 +10,15 @@ def main():
     teacher = Teacher("Mr. Smith", "Mathematics")
     teacher.teach()
 
-print('sosal')
+print('sos')
 
-print("sosal" * 2)
+print("sos" * 2)
 
 print("чек ван чек ту проверяем тоси моси")
 
 def main():
-    sosalbek = int(input("Сколько раз сосал Махмуд? "))
-    maga = f"Мага сосал {sosalbek} раз"
+    sosbek = int(input("Сколько раз ? "))
+    maga = f"Мага {sosbek} раз"
     print(maga)
 
 if __name__ == "__main__":

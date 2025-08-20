@@ -36,6 +36,7 @@ class Human:
 def main():
     maga = Human("Maga", "Magomedov", 20)
     print(maga)
+
 # проверка работы ошибки
     # try:
     #     maga.age = "двадцать"  # Пытаемся установить возраст строкой
