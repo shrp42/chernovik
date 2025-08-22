@@ -30,5 +30,4 @@ for i, test in enumerate(tests):
     if result == test['output']:
         print(f'Test {i} passed')
     else:
-        print(f"test {i} falied")
-                
+        print(f"test {i} falied") 
