@@ -30,7 +30,7 @@
 # result = locate_card(cards, query)
 # print(f"Card found at position: {result}")
 
-#--------------------------------------------------
+# --------------------------------------------------
 
 # def locate_card(cards,query):
 #     lo, hi = 0, len(cards) - 1
@@ -131,3 +131,9 @@ if result == -1:
     print(f'Number {query} not founded')
 else:
     print(f'Number {query} was founded at position {result + 1}')  
+
+
+    dfskdfjskldfjs
+
+
+    dfgdk
