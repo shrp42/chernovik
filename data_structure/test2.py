@@ -98,36 +98,37 @@
 
 
 
-def locate_card(cards,query):
-    lo,hi = 0, len(cards) - 1
-    while lo <= hi:
-        mid = (lo + hi) // 2
-        result = test_location(cards,query,mid)
-        if result == "left":
-            hi = mid - 1
-        elif result == "right":
-            lo = mid + 1
-        elif result == "founded":
-            return mid
-    return -1
+# def locate_card(cards,query):
+#     lo,hi = 0, len(cards) - 1
+#     while lo <= hi:
+#         mid = (lo + hi) // 2
+#         result = test_location(cards,query,mid)
+#         if result == "left":
+#             hi = mid - 1
+#         elif result == "right":
+#             lo = mid + 1
+#         elif result == "founded":
+#             return mid
+#     return -1
 
-def test_location(cards,query,mid):
-    if cards[mid] == query:
-        if mid-1 >= 0 and cards[mid-1] == query:
-            return "left"
-        else:
-            return "founded"
-    elif cards[mid] < query:
-        return "right"
-    else:
-        return "left"
+# def test_location(cards,query,mid):
+#     if cards[mid] == query:
+#         if mid-1 >= 0 and cards[mid-1] == query:
+#             return "left"
+#         else:
+#             return "founded"
+#     elif cards[mid] < query:
+#         return "right"
+#     else:
+#         return "left"
 
 
 
-cards = list(range(1,100000))
-query = 78939
-result = locate_card(cards,query)
-if result == -1:
-    print(f'Number {query} not founded')
-else:
-    print(f'Number {query} was founded at position {result + 1}')  
+# cards = list(range(1,100000))
+# query = 78939
+# result = locate_card(cards,query)
+# if result == -1:
+#     print(f'Number {query} not founded')
+# else:
+#     print(f'Number {query} was founded at position {result + 1}')  
+
