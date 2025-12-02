@@ -132,4 +132,3 @@
 # else:
 #     print(f'Number {query} was founded at position {result + 1}')  
 
-def 
