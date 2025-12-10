@@ -18,7 +18,7 @@ print("чек ван чек ту проверяем тоси моси")
 
 def main():
     sosbek = int(input("Сколько раз ? "))
-    maga = f"Мага {sosbek} раз"
+    maga = f"Мага cосал {sosbek} раз"
     print(maga)
 
 if __name__ == "__main__":
