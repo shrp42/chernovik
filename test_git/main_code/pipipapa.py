@@ -52,3 +52,7 @@ def calculator():
 print("Калькулятор завершен.")
 print("Проверка завершена успешно!")
 print("Все работает как надо!")
+
+calculator()
+main()
+pass
