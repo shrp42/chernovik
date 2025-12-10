@@ -4,5 +4,3 @@ def calculator():
     return num1 + num2
 
 print(calculator())
-
-
