@@ -5,8 +5,8 @@ def test_calculator():
     assert one.calculator() == 12
 
 def test_add():
-    result = one.add( 1, 2)
-    assert result == 3
+    result = one.add( 3, 2)
+    assert result == 5
 
 
 
