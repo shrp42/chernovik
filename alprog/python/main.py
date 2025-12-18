@@ -15,3 +15,10 @@ def bunch_of_smt():
     print(word,num,float_num,bool_smt)
 
 bunch_of_smt()
+
+def sum(num1, num2):
+    num1 = int(input("enter first number"))
+    num2 = int(input("enter second number"))
+    return num1 + num2
+
+sum()
