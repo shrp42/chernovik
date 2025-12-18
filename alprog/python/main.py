@@ -16,9 +16,10 @@ def bunch_of_smt():
 
 bunch_of_smt()
 
-def sum(num1, num2):
-    num1 = int(input("enter first number"))
-    num2 = int(input("enter second number"))
-    return num1 + num2
+def sum_nums():
+    a = int(input("Enter first number: "))
+    b = int(input("Enter second number: "))
+    print("Sum:", a + b)
 
-sum()
+sum_nums()
+
