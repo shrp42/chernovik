@@ -84,7 +84,29 @@ def count_vowels_consonants(text):
 
     return num_vowels, num_consonants
 
-# Пример использования
 text = "Привет, как дела?"
 vowels_count, consonants_count = count_vowels_consonants(text)
 print(f"Гласные: {vowels_count}, Согласные: {consonants_count}")
+
+
+
+def is_palindrome(text):
+    # Убираем пробелы и переводим все буквы в нижний регистр
+    clean_text = ''.join(char.lower() for char in text if char.isalnum())
+
+    # Сравниваем строку с её перевёрнутой версией
+    return clean_text == clean_text[::-1]
+
+
+text = "А роза упала на лапу Азора"
+if is_palindrome(text):
+    print("Строка является палиндромом")
+else:
+    print("Строка не является палиндромом")
+
+
+
+text = "Привет как дела"
+words = text.split()
+new_text = '-'.join(words)
+print(new_text)
