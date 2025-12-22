@@ -75,3 +75,16 @@ print(unique_numbers)
 
 
 #<3. Работа со строками>
+def count_vowels_consonants(text):
+    vowels = "aeiouAEIOUаеёиоуыэюяАЕЁИОУЫЭЮЯ"
+    consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZбвгджзйклмнпрстфхцчшщБВГДЖЗЙКЛМНПРСТФХЦЧШЩ"
+
+    num_vowels = sum(1 for char in text if char in vowels)
+    num_consonants = sum(1 for char in text if char in consonants)
+
+    return num_vowels, num_consonants
+
+# Пример использования
+text = "Привет, как дела?"
+vowels_count, consonants_count = count_vowels_consonants(text)
+print(f"Гласные: {vowels_count}, Согласные: {consonants_count}")
