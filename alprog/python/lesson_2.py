@@ -43,33 +43,33 @@ from typing import Tuple
 
 
 
-# def dict_students(d: dict[str, float]) -> None:
-#     for name,grade in d.items():
-#         print(f"{name}: {grade}")
-#
-# students = {
-#     "John": 3.5,
-#     "Liza": 5.0,
-#     "Nick": 2.0,
-#     "Anna": 3.0,
-#     "Maga": 4.2
-# }
-#
-# def find_grade(students: dict[str,float]) -> None:
-#     if not students:
-#         print("Dictionary is empty")
-#         return
-#
-#     top_student = max(students.items(), key=lambda item: item[1])
-#     bottom_student = min(students.items(), key=lambda item: item[1])
-#
-#     print(f"Student with the highest grade is {top_student[0]}: {top_student[1]}")
-#     print(f"Student with the lowest grade is {bottom_student[0]}: {bottom_student[1]}")
+def dict_students(d: dict[str, float]) -> None:
+    for name,grade in d.items():
+        print(f"{name}: {grade}")
+
+students = {
+    "John": 3.5,
+    "Liza": 5.0,
+    "Nick": 2.0,
+    "Anna": 3.0,
+    "Maga": 4.2
+}
+
+def find_grade(students: dict[str,float]) -> None:
+    if not students:
+        print("Dictionary is empty")
+        return
+
+    top_student = max(students.items(), key=lambda item: item[1])
+    bottom_student = min(students.items(), key=lambda item: item[1])
+
+    print(f"Student with the highest grade is {top_student[0]}: {top_student[1]}")
+    print(f"Student with the lowest grade is {bottom_student[0]}: {bottom_student[1]}")
 
 
-# numbers = [1,2,3,4,3,2,4,6]
-# unique_numbers = set(numbers)
-# print(unique_numbers)
+numbers = [1,2,3,4,3,2,4,6]
+unique_numbers = set(numbers)
+print(unique_numbers)
 
 
 
