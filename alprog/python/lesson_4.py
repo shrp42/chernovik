@@ -8,13 +8,13 @@ class Car:
         self.model = model
 
     def start(self):
-        print(f"{self.model} заведен 🚗")
+        print(f"{self.model} заведен")
 
     def stop(self):
-        print(f"{self.model} остановлен 🛑")
+        print(f"{self.model} остановлен")
 
     def drive(self):
-        print(f"{self.model} едет вперед 🏎️")
+        print(f"{self.model} едет вперед")
 
 class ElectricCar(Car):
     def __init__(self, model, charge):
@@ -23,7 +23,7 @@ class ElectricCar(Car):
 
     def charge_battery(self):
         self.charge = 100
-        print(f"{self.model} заряжен 🔋 на {self.charge}%")
+        print(f"{self.model} заряжен на {self.charge}%")
 
 # BMW_I8 = ElectricCar("BMW I8", 50)
 # BMW_I8.charge_battery()
