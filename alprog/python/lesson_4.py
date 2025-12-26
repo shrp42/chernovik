@@ -69,7 +69,7 @@ def timing_decorator(func):
         start = time.perf_counter()
         result = func(*args, **kwargs)
         end = time.perf_counter()
-        print(f"Function '{func.__name__}' was done in {end - start:6f} seconds")
+        print(f"Function '{func.__name__}' was done in {end - start:.4f} seconds")
         return result
     return wrapper
 
@@ -102,6 +102,7 @@ reverse_sorted_list = sorted(random_list, reverse = True)
 #       f"Reverse sorted random list: {reverse_sorted_list}")
 
 
+
 def math_operations():
     x = int(input("Enter your number: "))
     fact = math.factorial(x) if x >= 0 else "undefined"
@@ -115,14 +116,15 @@ def math_operations():
 # math_operations()
 
 
+
 # 1. Список квадратов чисел от 1 до 20
 squares = [x**2 for x in range(1, 21)]
-print("Список квадратов:", squares)
+# print("Список квадратов:", squares)
 
 # 2. Удвоение всех чисел
 doubled = list(map(lambda x: x*2, squares))
-print("Удвоенные числа:", doubled)
+# print("Удвоенные числа:", doubled)
 
 # 3. Отбор чисел, делящихся на 3
 div_by_3 = list(filter(lambda x: x % 3 == 0, doubled))
-print("Числа, делящиеся на 3:", div_by_3)
+# print("Числа, делящиеся на 3:", div_by_3)
