@@ -32,33 +32,33 @@ def divided_by() -> List[int]:
 #
 #<LESSON 2>
 #
-def d_students(d: Dict[str, float]) -> None:
-
-    if not d:
-        print("Dictionary is empty")
-        return
-
-    for name,grade in d.items():
-        print(f"{name}: {grade}")
-
-students = {"Steven": 4.0,
-     "Anna": 2.5,
-     "Joshua": 3.2,
-     "Peter":4.2}
-
-# d_students(students)
-
-def find_grade(students: Dict[str, float]) -> None:
-
-    if not students:
-        print('Dictionary is empty')
-        return
-
-    bottom_student = min(students.items(), key=lambda item:item[1])
-    top_student = max(students.items(), key=lambda item:item[1])
-
-    print(f"Student with the highest grade is {top_student[0]} with the grade {top_student[1]}")
-    print(f"Student with the lowest grade is {bottom_student[0]} with the grade {bottom_student[1]}")
+# def d_students(d: Dict[str, float]) -> None:
+#
+#     if not d:
+#         print("Dictionary is empty")
+#         return
+#
+#     for name,grade in d.items():
+#         print(f"{name}: {grade}")
+#
+# students = {"Steven": 4.0,
+#      "Anna": 2.5,
+#      "Joshua": 3.2,
+#      "Peter":4.2}
+#
+# # d_students(students)
+#
+# def find_grade(students: Dict[str, float]) -> None:
+#
+#     if not students:
+#         print('Dictionary is empty')
+#         return
+#
+#     bottom_student = min(students.items(), key=lambda item:item[1])
+#     top_student = max(students.items(), key=lambda item:item[1])
+#
+#     print(f"Student with the highest grade is {top_student[0]} with the grade {top_student[1]}")
+#     print(f"Student with the lowest grade is {bottom_student[0]} with the grade {bottom_student[1]}")
 
 # find_grade(students)
 
@@ -144,36 +144,36 @@ result = squared_list(nums)
 # print(result)
 
 
-
-def dict_st(d: Dict[str,float]) -> None:
-    for name,grade in d.items():
-        print(f"{name}: {grade}")
-
-students = {
-    "Alice": 85,
-    "Bob": 72,
-    "Charlie": 90,
-    "Diana": 68,
-    "Ethan": 95,
-    "Fiona": 77,
-    "George": 83,
-    "Hannah": 91,
-    "Ivan": 64,
-    "Julia": 88
-}
-
-# dict_st(students)
-
-def find_gr(students: Dict[str, float]) -> None:
-    if not students:
-        print("Dictionary is empty !")
-        return
-
-    top_st = max(students.items(), key = lambda item : item[1])
-    low_st = min(students.items(), key = lambda item : item[1])
-
-    print(f"Student with the highest grade is {top_st[0]} with grade {top_st[1]}")
-    print(f"Student with the lowest grade is {low_st[0]} with grade {low_st[1]}")
+#
+# def dict_st(d: Dict[str,float]) -> None:
+#     for name,grade in d.items():
+#         print(f"{name}: {grade}")
+#
+# students = {
+#     "Alice": 85,
+#     "Bob": 72,
+#     "Charlie": 90,
+#     "Diana": 68,
+#     "Ethan": 95,
+#     "Fiona": 77,
+#     "George": 83,
+#     "Hannah": 91,
+#     "Ivan": 64,
+#     "Julia": 88
+# }
+#
+# # dict_st(students)
+#
+# def find_gr(students: Dict[str, float]) -> None:
+#     if not students:
+#         print("Dictionary is empty !")
+#         return
+#
+#     top_st = max(students.items(), key = lambda item : item[1])
+#     low_st = min(students.items(), key = lambda item : item[1])
+#
+#     print(f"Student with the highest grade is {top_st[0]} with grade {top_st[1]}")
+#     print(f"Student with the lowest grade is {low_st[0]} with grade {low_st[1]}")
 
 # find_gr(students)
 
@@ -188,4 +188,127 @@ with open("file_nums.txt", "w") as file:
 with open("file_nums.txt", "r") as file:
     nums_from_file = [int(n.strip()) for n in file]
 
-print(nums_from_file)
+# print(nums_from_file)
+
+
+
+
+
+# LESSON 1/2/3
+
+# num = 12
+# print(type(num))
+
+def zer():
+    while True:
+        try:
+            result = int(input("Enter the number: "))
+            if result > 0:
+                print(f"Number {result} bigger then 0")
+            elif result < 0:
+                print(f"Number {result} lower then 0")
+            else:
+                print("Your number is 0")
+            break
+
+        except ValueError:
+            print("ENTER THE NUMBER!")
+            continue
+
+# zer()
+
+
+def dv():
+    nums = [n for n in range(1,500) if n % 5 == 0 and n % 103 == 0]
+
+    if nums:
+        print(f'These is numbers {nums}')
+    else:
+        print('There is no numbers')
+
+# dv()
+
+
+
+def count(start: int = 10, end: int = 1, m: str = "PIP", delay = 0.5) -> None:
+    cur = start
+
+    while cur >= end:
+        print(cur)
+        time.sleep(delay)
+        cur -=1
+    print(m)
+
+# count()
+
+def cv(p: list[int]) -> list[int]:
+    return [z * z for z in p]
+
+nms = [12, 10, 8, 6, 4, 2]
+rs = cv(nms)
+# print(rs)
+
+
+
+def d_students(d: dict[str, float]) -> None:
+
+    if not d:
+        print("Dictionary is empty")
+        return
+
+    for name,grade in d.items():
+        print(f"{name}: {grade}")
+
+students = {
+    "Mia": 9,
+    "Alex": 7,
+    "Lena": 10,
+    "Igor": 6,
+    "Sophia": 8
+}
+
+def mim_max(students: dict[str, float]) -> None:
+
+    if not students:
+        print("Dictionary is empty")
+        return
+
+    top_student = max(students.items(), key = lambda item:item[1])
+    low_student = min(students.items(), key=lambda item: item[1])
+
+    print(f"Student with the highest grade is {top_student[0]} with grade {top_student[1]}")
+    print(f"Student with the lowest grade is {low_student[0]} with grade {low_student[1]}")
+
+# mim_max(students)
+
+
+
+# with open("file2_nums", "r") as file2:
+#     l = [n.strip() for n in file2]
+#     print(l)
+#
+# with open("file2_nums", "w") as file2:
+#     nums = ("magic\n" * 10)
+#
+#     for n in nums:
+#         file2.write(n)
+
+
+class Worker:
+    def __init__(self, name: str, salary: float):
+        self.name = name
+        self. salary = salary
+
+    def __str__(self):
+        return f"{self.name}: {self.salary}"
+
+class Position(Worker):
+    def __init__(self, name: str, salary: float, position: str):
+        super().__init__(name,salary)
+        self.position = position
+
+    def __str__(self):
+        return f"{self.name} position is {self.position} with salary {self.salary} per hour"
+
+worker1 = Position("John",250.00,"Chief")
+print(worker1)

@@ -53,4 +53,4 @@ class Student(Person):
 
 
 #<2. Декораторы и генераторы>
-def timer():
+
