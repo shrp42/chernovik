@@ -1,3 +1,4 @@
+import random
 from typing import *
 import time
 
@@ -310,5 +311,150 @@ class Position(Worker):
     def __str__(self):
         return f"{self.name} position is {self.position} with salary {self.salary} per hour"
 
-worker1 = Position("John",250.00,"Chief")
-print(worker1)
+# worker1 = Position("John",250.00,"Chief")
+# print(worker1)
+
+
+
+
+
+# LESSON 1/2/3/4
+# num = 2
+# print(type(num))
+
+def bol_men():
+    while True:
+        try:
+            num = int(input("Enter your number:"))
+            break
+        except ValueError:
+            print("Enter the number")
+
+    if num < 0:
+        print("Your number is less than 0")
+    elif num > 0:
+        print("Your number is greater than 0")
+    else:
+        print("Your number is 0")
+
+# bol_men()
+
+
+div = [n for n in range(1,100) if n % 3 == 0 and n % 5 == 0]
+# print(div)
+
+
+def counter(start: int = 10, end: int = 1, ms: str = "EsDeeKid", delay = 0.5) -> None:
+    current = start
+
+    while current >= end:
+        print(current)
+        time.sleep(delay)
+        current -= 1
+    print(ms)
+
+# counter()
+
+
+def square(l: List[int]) -> List[int]:
+    return [x * x for x in l]
+
+nums2 = [1,2,3,4,5,6,7,8,9]
+nums = square(nums2)
+# print(nums)
+
+
+def d_workers(d: Dict[str, float]):
+
+    if not d:
+        print("Dictionary is empty !")
+
+    for name,salary in d.items():
+        print(f"{name}: {salary}")
+
+workers = {"John": 200,
+           "Liza": 95,
+           "Kate": 110,
+           "Bruce": 72}
+
+def salaries(workers: Dict[str, float]) -> None:
+
+    max_salary = max(workers.items(), key = lambda item: item[1])
+    min_salary = min(workers.items(), key=lambda item: item[1])
+
+    print(f"{max_salary[0]} has the highest salary {max_salary[1]} per hour")
+    print(f"{min_salary[0]} has the lowest salary {min_salary[1]} per hour")
+
+# salaries(workers)
+
+
+# with open("file3_nums.txt", "w") as file3:
+#     new_nums = [1,2,3,4,5,6,7,8,9]
+#     for n in new_nums:
+#         file3.write(f"{n}\n")
+#
+# with open("file3_nums.txt", "r") as file3:
+#     file_nums = [int(n.strip()) for n in file3]
+#     print(file_nums)
+
+
+class Person:
+    def __init__(self, name: str, gender: str, age: int):
+        self.name = name
+        self.age = age
+        self.gender = gender
+    def __str__(self):
+        return f"{self.name} is {self.gender}: {self.age} years old"
+
+class Student(Person):
+    def __init__(self,name: str, gender: str, age: int, grade: int):
+        super().__init__(name,gender,age)
+        self.grade = grade
+    def __str__(self):
+        return f"{self.name} is {self.gender}: {self.age} years old in {self.grade} grade"
+
+# st1 = Student("Joseph","Male",17,11)
+# print(st1)
+
+
+
+def timing_decorator(func):
+    def wrapper(*args,**kwargs):
+        start = time.perf_counter()
+        result = func(*args,**kwargs)
+        end = time.perf_counter()
+        print(f"\nFunction '{func.__name__}' has done in {end - start:.4f} seconds")
+        return result
+    return wrapper
+
+
+# @timing_decorator
+def fin():
+    a, b = 0,1
+    while True:
+        yield a
+        a, b = b, a + b
+
+
+for num in fin():
+    if num > 100:
+        break
+    # print(num, end=" ")
+
+# fin()
+
+
+
+random_nums = [random.randint(1,100) for _ in range(12)]
+sorted_list = sorted(random_nums)
+# print(sorted_list)
+
+
+sqr_list = [x*x for x in range(1,20)]
+# print(sqr_list)
+
+double = list(map(lambda x: x*2, sqr_list))
+# print(f"List was doubled {double}")
+
+filter = list(filter(lambda x: x % 4 == 0, double))
+# print(f"List has only numbers that can be divided by 4 {filter}")
