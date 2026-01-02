@@ -1,4 +1,4 @@
-#<1. Файлы>
+# <1. Файлы>
 nums = [1, 2, 3, 4, 5,6,7,8,9]
 
 # запись в файл
@@ -27,7 +27,7 @@ nums_words = sum(len(line.split()) for line in lines)
 
 
 
-#<2. Исключения>
+# <2. Исключения>
 def num():
     while True:
        try:

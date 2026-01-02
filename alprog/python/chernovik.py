@@ -463,54 +463,50 @@ filter = list(filter(lambda x: x % 4 == 0, double))
 
 
 #LESSON 1/2/3/4/5
-def add(a,b):
-    return a + b
-
-def minus(a,b):
-    return a - b
-
-def multiply(a,b):
-    return a * b
-
-def divide(a,b):
-    if b == 0:
-        print("Can't divide by 0")
-        return None
-    return a / b
-
-def calculator():
-    while True:
-        print("\nEnter command: add (+), minus (-), multiply (*), divide (/), exit (exit)")
-        command = input("Enter command: ").strip().lower()
-
-        if command == "exit":
-            print("Exit calculator...")
-            break
-
-        if command in ("+","-","/","*"):
-            try:
-                num1 = float(input("Enter first number: "))
-                num2 = float(input("Enter second number: "))
-            except ValueError:
-                print("Enter valid number !")
-                continue
-
-            if command == "+":
-                print(f"Result: {add(num1,num2)}")
-            if command == "-":
-                print(f"Result: {minus(num1,num2)}")
-            if command == "*":
-                print(f"Result: {multiply(num1,num2)}")
-            if command == "/":
-                result = divide(num1, num2)
-                if result is not None:
-                    print(f"Result: {result}")
-        else:
-            print("Unknown command !")
-
+# def add(a,b):
+#     return a + b
+#
+# def minus(a,b):
+#     return a - b
+#
+# def multiply(a,b):
+#     return a * b
+#
+# def divide(a,b):
+#     if b == 0:
+#         print("Can't divide by 0")
+#         return None
+#     return a / b
+#
+# def calculator():
+#     while True:
+#         print("\nEnter command: add (+), minus (-), multiply (*), divide (/), exit (exit)")
+#         command = input("Enter command: ").strip().lower()
+#
+#         if command == "exit":
+#             print("Exit calculator...")
+#             break
+#
+#         if command in ("+","-","/","*"):
+#             try:
+#                 num1 = float(input("Enter first number: "))
+#                 num2 = float(input("Enter second number: "))
+#             except ValueError:
+#                 print("Enter valid number !")
+#                 continue
+#
+#             if command == "+":
+#                 print(f"Result: {add(num1,num2)}")
+#             if command == "-":
+#                 print(f"Result: {minus(num1,num2)}")
+#             if command == "*":
+#                 print(f"Result: {multiply(num1,num2)}")
+#             if command == "/":
+#                 result = divide(num1, num2)
+#                 if result is not None:
+#                     print(f"Result: {result}")
+#         else:
+#             print("Unknown command !")
+#
 # calculator()
 
-
-
-def sm():
-    print("sm")

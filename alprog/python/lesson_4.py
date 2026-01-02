@@ -2,7 +2,7 @@ import time
 import random
 import math
 
-#<1. Классы и ООП>
+# <1. Классы и ООП>
 
 class Car:
     def __init__(self, model):
@@ -63,7 +63,7 @@ class Student(Person):
 
 
 
-#<2. Декораторы и генераторы>
+# <2. Декораторы и генераторы>
 def timing_decorator(func):
     def wrapper(*args, **kwargs):
         start = time.perf_counter()
@@ -76,7 +76,7 @@ def timing_decorator(func):
 @timing_decorator
 def timer():
     delay = time.sleep(2)
-    print("kakashki")
+    print("kakashi")
 # timer()
 
 
@@ -94,7 +94,7 @@ for num in fen_nums():
 
 
 
-#<3. Работа с модулями>
+# <3. Работа с модулями>
 random_list = [random.randint(1,100) for _ in range(12)]
 sorted_list = sorted(random_list)
 reverse_sorted_list = sorted(random_list, reverse = True)

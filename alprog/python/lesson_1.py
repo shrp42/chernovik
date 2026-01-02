@@ -49,7 +49,7 @@ def sum_nums():
 
 
 
-#<3. Условные конструкции>
+# <3. Условные конструкции>
 def classify_num(num: int) -> str:
     if num > 0:
         return "positive"
@@ -88,7 +88,7 @@ def leap_or_no_main():
 
 
 
-#<4. Циклы>
+# <4. Циклы>
 def divide_by_3_5():
     for num in range(1,100):
         if num % 3 == 0 and num % 5 == 0:
@@ -107,7 +107,7 @@ def countdown(start: int = 10, end: int = 0, message: Optional[str] = "BOOM", de
 
 
 #
-#<5. Списки и кортежи>
+# <5. Списки и кортежи>
 def anal_nums(nums: List[int]) -> None:
 
     if not nums:

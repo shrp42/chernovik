@@ -1,4 +1,4 @@
-#< 1. Проект «Калькулятор»>
+# < 1. Проект «Калькулятор»>
 def add(a,b):
     return a + b
 
@@ -72,7 +72,7 @@ def analyze_text(filename):
         print(f"{word}: {count}")
 
 # вызов функции
-analyze_text("file_text.txt")
+# analyze_text("file_text.txt")
 
 
 
@@ -102,7 +102,7 @@ def guess_number():
             break
 
 # Запуск игры
-guess_number()
+# guess_number()
 
 
 

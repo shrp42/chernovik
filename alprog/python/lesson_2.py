@@ -7,7 +7,7 @@ from typing import Tuple
 
 
 
-##<1. Функции>
+## <1. Функции>
 # def is_prime(n: int) -> bool:
 #
 #     if n <= 1:
@@ -74,7 +74,7 @@ print(unique_numbers)
 
 
 
-#<3. Работа со строками>
+# <2. Работа со строками>
 def count_vowels_consonants(text):
     vowels = "aeiouAEIOUаеёиоуыэюяАЕЁИОУЫЭЮЯ"
     consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZбвгджзйклмнпрстфхцчшщБВГДЖЗЙКЛМНПРСТФХЦЧШЩ"
