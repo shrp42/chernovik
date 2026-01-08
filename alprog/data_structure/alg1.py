@@ -1,34 +1,34 @@
 # <1. Массивы и списки>
 # * Two Sum: Найти два числа в массиве, сумма которых равна заданному числу.
 def two_sum(nums, target):
-    seen = {}  # словарь: число -> индекс
+    seen = {}
 
-    for p, num in enumerate(nums):
+    for i, num in enumerate(nums):
         diff = target - num
         if diff in seen:
-            return [seen[diff], p]
-        seen[num] = p
+            return [seen[diff], i]
+        seen[num] = i
 
-# Тесты
-# print(two_sum([2, 7, 11, 15], 9))        # [0, 1]
-# print(two_sum([-3, 4, 3, 90], 0))       # [0, 2]
-# print(two_sum([3, 3], 6))               # [0, 1]
+# print(two_sum([2, 7, 11, 15], 9))
+# print(two_sum([-3, 4, 3, 90], 0))
+# print(two_sum([3, 3], 0))
+# print(two_sum([3, 3], 6))
+# print(two_sum([1,1,1,1,1,1,11,1,1], 6))
 
 
 
 
 # * Remove Duplicates from Sorted Array: Удалить дубликаты in-place.
-def remove_duplicates(nums):
+def remove_duplicates(nums: list[int]) -> int:
     if not nums:
         return 0
 
-    i = 0  # индекс последнего уникального элемента
+    i = 0
 
-    for j in range(1, len(nums)):
+    for j in range(1,len(nums)):
         if nums[j] != nums[i]:
             i += 1
             nums[i] = nums[j]
-
     return i + 1
 
 # nums = [1,1,2]
@@ -51,12 +51,12 @@ def remove_duplicates(nums):
 
 
 # * Rotate Array: Повернуть массив на k позиций.
-def rotate(nums, k):
+def rotate(nums: list[int], k: int) -> int:
     n = len(nums)
     if n == 0:
         return
 
-    k = k % n  # если k больше длины массива
+    k = k % n
 
     def reverse(left, right):
         while left < right:
@@ -64,30 +64,30 @@ def rotate(nums, k):
             left += 1
             right -= 1
 
-    reverse(0, n - 1)       # шаг 1
-    reverse(0, k - 1)       # шаг 2
-    reverse(k, n - 1)       # шаг 3
+    reverse(0, n - 1)
+    reverse(0, k - 1)
+    reverse(k, n - 1)
 
-# nums = [1,2,3,4,5,6,7] 2,3,4,5,6,7,1
-# rotate(nums, 9)
-# print(nums)  # [5,6,7,1,2,3,4]
+# nums = [1,2,3,4,5,6,7,8,9]
+# rotate(nums,4)
+# print(nums)
 
 
 
 
 # * Maximum Subarray (Kadane’s algorithm): Найти под_массив с максимальной суммой.
-def max_subarray(nums):
+def max_subarray(nums: list[int]) -> int:
     if not nums:
         return 0
 
-    max_sum = nums[0]
-    current_sum = nums[0]
+    current_nums = nums[0]
+    max_nums = nums[0]
 
     for num in nums[1:]:
-        current_sum = max(num, current_sum + num)
-        max_sum = max(max_sum, current_sum)
+        current_nums = max(num, current_nums + num)
+        max_nums = max(max_nums, current_nums)
 
-    return max_sum
+    return max_nums
 
-# nums = [-2,1,-3,4,-1,2,1,-5,4]
-# print(max_subarray(nums))  # 6
+# nums = [12,2,4,6,-100,14,13,-2,4,6,-7]
+# print(max_subarray(nums))

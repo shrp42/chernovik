@@ -1,173 +1,69 @@
-#Линейный алгоритм - подходит для маленьких баз данных
+# LESSON 1
+def two_sum(nums, target):
+    seen = {}
 
-# def locate_card(cards,number):
-#     position = 0
-#
-#     while position < len(cards):
-#         if cards[position] == number:
-#             return position
-#         position += 1
-#
-#     return -1
-#
-# cards = [1,2,3,4,5,6,7,8,9]
-# number = 6
-# result = locate_card(cards,number)
-# if result != -1:
-#     print(f"Card position is = {result + 1}")
-# else:
-#     print("Card not founded")
-#
-# print('---Testing---')
-#
-# tests = [
-#     {'input': {'cards': [2,3,3,4,4,4,42,52], 'number': 42}, 'output': 6},
-#     {'input': {'cards': [], 'number': 3}, 'output': -1},
-#     {'input': {'cards': [1,2,3,4,5,6], 'number': 9}, 'output': -1}
-# ]
-# for i, test in enumerate(tests):
-#     result = locate_card(**test['input'])
-#     if result == test['output']:
-#         print(f'Test {i} passed')
-#     else:
-#         print(f"test {i} falied")
-#
-#
-# # --------------------------------------------------------------------------------------
-#
-#
-# # Бинарный поиск - подходит для работы с большими базами данных
-# #
-# def test_location(cards,query,mid):
-#     if cards[mid] == query:
-#         if mid-1 >= 0 and cards[mid-1] == query:
-#             return "Left"
-#         else:
-#             return "Founded"
-#     elif cards[mid] < query:
-#         return "Left"
-#     else:
-#         return "Right"
-#
-# def locate_card(cards,query):
-#     lo, hi = 0, len(cards)-1
-#     while lo <= hi:
-#         mid = (lo + hi) // 2
-#         result = test_location(cards,query,mid)
-#         if result == "Founded":
-#             return mid
-#         elif result == "Left":
-#             hi = mid - 1
-#         elif result == "Right":
-#             lo = mid + 1
-#     return -1
-#
-# cards = [10,9,8,7,6,5,4,3,2,1]
-# query = 2
-# locate_card(cards,query)
-# result = locate_card(cards, query)
-# print(f"Card found at position: {result}")
-#
-# # --------------------------------------------------------------------------------------
-#
-# def locate_card(cards,query):
-#     lo, hi = 0, len(cards) - 1
-#     while lo <= hi:
-#         mid = (lo + hi) // 2
-#         result = test_location(cards,query,mid)
-#         if result == "founded":
-#             return mid
-#         elif result == "left":
-#             hi = mid - 1
-#         elif result == 'right':
-#             lo = mid + 1
-#     return -1
-#
-# def test_location(cards,query,mid):
-#     if cards[mid] == query:
-#         if mid-1 >= 0 and cards[mid-1] == query:
-#             return "left"
-#         else:
-#             return "founded"
-#     elif cards[mid] < query:
-#         return "left"
-#     else:
-#         return "right"
-#
-# cards = [6,5,4,3,2,1]
-# query = 1
-# result = locate_card(cards,query)
-# print(f"Positon of card is {result}")
-#
-# # --------------------------------------------------------------------------------------
-#
-# def locate_card(cards,number):
-#     lo, hi = 0, len(cards) - 1
-#     while lo <= hi:
-#         mid = (lo + hi) // 2
-#         result = test_location(cards,number,mid)
-#         if result == 'founded':
-#             return mid
-#         elif result == 'left':
-#             hi = mid - 1
-#         elif result == 'right':
-#             lo = mid + 1
-#     return -1
-#
-# def test_location(cards,number,mid):
-#     if cards[mid] == number:
-#         if mid-1 >= 0 and cards[mid-1] == number:
-#             return 'left'
-#         else:
-#             return 'founded'
-#     elif cards[mid] < number:
-#         return 'right'
-#     else:
-#         return 'left'
-#
-# cards = list(range(1,101))
-# number = 17
-# result = locate_card(cards,number)
-#
-# if result == -1:
-#     print(f'Number {number} not founded')
-# else:
-#     print(f'Number {number} was founded at position {result}')
-#
-#
-# def locate_card(cards,query):
-#     lo,hi = 0, len(cards) - 1
-#     while lo <= hi:
-#         mid = (lo + hi) // 2
-#         result = test_location(cards,query,mid)
-#         if result == "left":
-#             hi = mid - 1
-#         elif result == "right":
-#             lo = mid + 1
-#         elif result == "founded":
-#             return mid
-#     return -1
-#
-# def test_location(cards,query,mid):
-#     if cards[mid] == query:
-#         if mid-1 >= 0 and cards[mid-1] == query:
-#             return "left"
-#         else:
-#             return "founded"
-#     elif cards[mid] < query:
-#         return "right"
-#     else:
-#         return "left"
-#
-#
-# cards = list(range(1,100000))
-# query = 78939
-# result = locate_card(cards,query)
-# if result == -1:
-#     print(f'Number {query} not founded')
-# else:
-#     print(f'Number {query} was founded at position {result + 1}')
+    for i, num in enumerate(nums):
+        diff = target - num
+        if diff in seen:
+            return [seen[diff], i]
+        seen[num] = i
+
+# print(two_sum([2, 7, 11, 15], 9))
+# print(two_sum([-3, 4, 3, 90], 0))
+# print(two_sum([3, 3], 0))
+# print(two_sum([3, 3], 6))
+# print(two_sum([1,1,1,1,1,1,11,1,1], 6))
 
 
-# --------------------------------------------------------------------------------------
+def remove_d(nums: list[int]) -> int:
+    if not nums:
+        return 0
 
+    i = 0
+
+    for j in range(1,len(nums)):
+        if nums[j] != nums[i]:
+            i += 1
+            nums[i] = nums[j]
+    return i + 1
+
+
+
+def rotate(nums: list[int], k: int) -> int:
+    n = len(nums)
+    if n == 0:
+        return
+
+    k = k % n
+
+    def reverse(left, right):
+        while left < right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+
+    reverse(0, n - 1)
+    reverse(0, k - 1)
+    reverse(k, n - 1)
+
+# nums = [1,2,3,4,5,6,7,8,9]
+# rotate(nums,4)
+# print(nums)
+
+
+
+def max_subarray(nums: list[int]) -> int:
+    if not nums:
+        return 0
+
+    current_nums = nums[0]
+    max_nums = nums[0]
+
+    for num in nums[1:]:
+        current_nums = max(num, current_nums + num)
+        max_nums = max(max_nums, current_nums)
+
+    return max_nums
+
+# nums = [12,2,4,6,-100,14,13,-2,4,6,-7]
+# print(max_subarray(nums))
