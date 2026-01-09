@@ -139,5 +139,214 @@ def max_s(nums: list[int]):
 
     return max_n
 
-nums = [-1,-2,4,53,-35,3]
-print(max_s(nums))
+# nums = [-1,-2,4,53,-35,3]
+# print(max_s(nums))
+
+
+
+def two_sums(nums: list[int], target: int) -> int:
+    seen = {}
+
+    if not nums:
+        return 0
+
+    for i, num in enumerate(nums):
+        diff = target - num
+        if diff in seen:
+            return [seen[diff], i]
+        seen[num] = i
+
+# nums = [1,2,2,2,3,4,4,4,55,43]
+# print(two_sums(nums,8))
+
+
+
+def rotate(nums: list[int], k: int) -> int:
+    n = len(nums)
+
+    if n == 0:
+        return 0
+
+    k = k % n
+
+    def rever(left, right):
+        while left < right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+
+    rever(0, n - 1)
+    rever(0, k - 1)
+    rever(k, n - 1)
+
+# nums = [1,2,3,4,5]
+# k = rotate(nums, 2)
+# print(nums)
+
+
+
+def maximum(nums: list[int]) -> int:
+    if not nums:
+        return 0
+
+    current_n = nums[0]
+    max_n = nums[0]
+
+    for j in (1, len(nums)):
+        current_n = max(j, current_n + j)
+        max_n = max(max_n, current_n)
+    return max_n
+
+# nums = [1,2,3,4,-5,2,3,4,2]
+# k = maximum(nums)
+# print(nums, k)
+
+
+
+def rem_d(nums: list[int]) -> int:
+    if not nums:
+        return 0
+
+    i = 0
+
+    for j in range(1, len(nums)):
+        if nums[j] != nums[i]:
+            i += 1
+            nums[i] = nums[j]
+
+    return i + 1
+
+# nums = [1,1,2,2,2,2,2,2,3,4,5,64,83,548,622,721]
+# k = rem_d(nums)
+# print(k, nums[:k])
+
+
+
+
+
+# LESSON 2
+def check_p1(s: str) -> bool:
+    s = s.replace(" ","").lower()
+    stuck = []
+
+    for char in s:
+        stuck.append(char)
+
+    for char in s:
+        if char != stuck.pop():
+            return False
+
+    return True
+
+
+
+def check_p2(s: str) -> bool:
+    s = s.replace(" ","").lower()
+    left, right = 0, len(s) - 1
+
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
+
+    return True
+
+# print(check_p1("replace"))
+# print(check_p2("репер"))
+
+
+
+
+
+def check_a1(s1: str, s2: str) -> bool:
+    s1 = s1.replace(" ","").lower()
+    s2 = s2.replace(" ", "").lower()
+
+    return sorted(s1) == sorted(s2)
+
+
+
+def check_a2(s1: str, s2: str) -> bool:
+    s1 = s1.replace(" ","").lower()
+    s2 = s2.replace(" ", "").lower()
+
+    if len(s1) != len(s2):
+        return False
+
+    count = {}
+
+    for char in s1:
+        count[char] = count.get(char,0) + 1
+
+    for char in s2:
+        if char not in count:
+            return False
+        count[char] -= 1
+        if count[char] < 0:
+            return False
+
+    return True
+
+# print(check_a2("sats","stasik"))
+
+
+
+def check_l(s: str) -> int:
+    s = s.replace(" ","").lower()
+    char_set = set()
+    left = 0
+    maxl = 0
+
+    for right in range(len(s)):
+        while s[right] in char_set:
+            char_set.remove(s[left])
+            left += 1
+
+        char_set.add(s[right])
+        maxl = max(maxl, right - left + 1)
+
+    return maxl
+
+print(check_l("qwertyui"))
+
+
+def ch_a(s1: str, s2,str) -> bool:
+    s1 = s1.replace(" ","").lower()
+    s2 = s2.replace(" ", "").lower()
+
+    if len(s1) != len(s2):
+        return False
+
+    count = {}
+
+    for char in s1:
+        count[char] = count.get[char, 0] + 1
+
+    for char in s2:
+        if char not in count:
+            return False
+
+        count[char] -= 1
+
+        if count[char] < 0:
+            return False
+
+    return True
+
+
+
+def length(s: str) -> int:
+    s = s.replace(" ","").lower()
+    char_set = set()
+    left = 0
+    maxi = 0
+
+    for right in range(len(s)):
+        while s[right] in char_set:
+            char_set.remove(s[left])
+            left += 1
+        char_set.add(s[right])
+        maxi = max(maxi, right - right + 1)
+
+    return maxi
