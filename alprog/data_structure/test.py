@@ -308,7 +308,7 @@ def check_l(s: str) -> int:
 
     return maxl
 
-print(check_l("qwertyui"))
+# print(check_l("qwertyui"))
 
 
 def ch_a(s1: str, s2,str) -> bool:
@@ -350,3 +350,159 @@ def length(s: str) -> int:
         maxi = max(maxi, right - right + 1)
 
     return maxi
+
+
+
+
+# LESSON 1/2
+def two_ss(nums: list[int], target: int) -> list[int]:
+    if not nums:
+        print("List is empty")
+        return None
+
+    seen = {}
+
+    for i, num in enumerate(nums):
+        diff = target - num
+        if diff in seen:
+            return [seen[diff], i]
+        seen[num] = i
+
+
+def del_d(nums: list[int]) -> list[int]:
+    if not nums:
+        return []
+
+    i = 0
+
+    for j in range(1,len(nums)):
+        if nums[j] != nums[i]:
+            i += 1
+            nums[i] = nums[j]
+
+    return nums[:i + 1]
+
+# print(del_d([1,1,1,1,1,2,3,4,5,6,7,8,9]))
+
+
+def pov(nums: list[int], k: int) -> list[int]:
+    if not nums:
+        return []
+
+    n = len(nums)
+
+    k = k % n
+
+    def reverse(left, right):
+        while left < right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+
+    reverse(0, n - 1)
+    reverse(0, k - 1)
+    reverse(k, n - 1)
+
+    return nums
+
+# nums = [1,2,3,4,5,6,7,8]
+# print(pov(nums, 4))
+
+
+def max_sub(nums: list[int]) -> int:
+    if not nums:
+        return 0
+
+    current_nums = max_nums = nums[0]
+
+    for num in nums[1:]:
+        current_nums = max(num, current_nums + num)
+        max_nums = max(max_nums, current_nums)
+
+    return max_nums
+
+# print(max_sub([1, -2, 3, 4, -1, 2, 1, -5, 4]))
+# print(max_sub([-3, -1, -2]))
+
+
+def check_p(s: str) -> bool:
+    s = s.replace(" ","").lower()
+
+    left = 0
+    right = len(s) - 1
+
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
+
+    return True
+
+# print(check_p("A man a plan a canal Panama"))
+
+
+def check_a(s1: str, s2: str) -> bool:
+    s1 = s1.replace(" ","").lower()
+    s2 = s2.replace(" ","").lower()
+
+    if len(s1) != len(s2):
+        return False
+
+    count = {}
+
+    for char in s1:
+        count[char] = count.get(char, 0) + 1
+
+    for char in s2:
+        if char in count:
+            count[char] -= 1
+            if count[char] < 0:
+                return False
+
+    return True
+
+# print(check_a("kakashik", "kakashki"))
+# print(check_a("kakashik", "kakashk"))
+# print(check_a("kakashik", "kakashka"))
+# print(check_a("", ""))
+
+
+def check_l(s: str) -> int:
+    s = s.replace(" ", "").lower()
+
+    char_d = {}
+    left = 0
+    max_l = 0
+
+    for right, char in enumerate(s):
+        if char in char_d:
+            left = max(left, char_d[char] + 1)
+        char_d[char] = right
+        max_l = max(max_l, right - left + 1)
+
+    return max_l
+
+
+
+def longest_sub_k(s: str, k: int) -> int:
+    s = s.replace(" ", "").lower()
+
+    char_d = {}
+    left = 0
+    max_len = 0
+
+    for right, char in enumerate(s):
+        char_d[char] = char_d.get(char, 0) + 1
+        while len(char_d) > k:
+            left_char = s[left]
+            char_d[left_char] -= 1
+            if char_d[left_char] == 0:
+                del char_d[left_char]
+            left += 1
+
+        max_len = max(max_len, right - left + 1)
+
+    return max_len
+
+print(longest_sub_k("gdhjagshdgajhsg", 6))
