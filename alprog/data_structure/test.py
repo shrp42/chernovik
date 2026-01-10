@@ -506,3 +506,39 @@ def longest_sub_k(s: str, k: int) -> int:
     return max_len
 
 print(longest_sub_k("gdhjagshdgajhsg", 6))
+
+
+def check_a2(s:str) -> int:
+    s = s.replace(" ", "").lower()
+
+    char_d = {}
+    left = 0
+    max_length = 0
+
+    for right, char in enumerate(s):
+        if char in char_d:
+            left = max(left, char_d[char] + 1)
+        char_d[char] = right
+        max_length = max(max_length, right - left + 1)
+
+    return max_length
+
+def check_lsk(s: str, k: int) -> int:
+    s = s.replace(" ", "").lower()
+
+    char_dict = {}
+    left = 0
+    max_len = 0
+
+    for right, char in enumerate(s):
+        char_dict[char] = char_dict.get(char, 0) + 1
+        while len(char_dict) > k:
+            char_left = s[left]
+            char_dict[char_left] -= 1
+            if char_dict[char_left] == 0:
+                del char_dict[char_left]
+            left += 1
+
+        max_len = max(max_len, right - left + 1)
+    return max_len
+
