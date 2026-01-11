@@ -542,3 +542,77 @@ def check_lsk(s: str, k: int) -> int:
         max_len = max(max_len, right - left + 1)
     return max_len
 
+
+# LESSON 1-2:
+
+def  check_p(s: str) -> bool:
+    s = s.replace(" ","").lower()
+
+    left, right = 0, len(s) - 1
+
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
+    return True
+
+
+def check(s1: str, s2: str) -> bool:
+    s1 = s1.replace(" ", "").lower()
+    s2 = s2.replace(" ", "").lower()
+
+    if len(s1) != len(s2):
+        return False
+
+    count = {}
+
+    for char in s1:
+        count[cahr] = count.get(char, 0) + 1
+
+    for char in s2:
+        if char not in count:
+            return False
+        count[char] -= 1
+        if count[char] < 0:
+            return False
+
+    return True
+
+
+def check_longest_sub(s: str) -> int:
+    s = s.replace(" ", "").lower()
+
+    char_d = {}
+    left = 0
+    max_len = 0
+
+    for right, char in enumerate(s):
+        if char in char_d:
+            left = max(left, char_d[char] + 1)
+        char_d[char] = right
+        max_len = max(max_len, right - left + 1)
+
+    return max_len
+
+
+def check_longest_sub_k(s: str, k: int) -> int:
+    s = s.replace(" ", "").lower()
+
+    char_d = {}
+    left = 0
+    max_len = 0
+
+    for right, char in enumerate(s):
+        char_d[char] = char_d.get(char, 0) + 1
+        while len(char_d) > k:
+            left_char = s[left]
+            char_d[left_char] -= 1
+            if char_d[left_char] == 0:
+                del char_d[left_char]
+            left += 1
+        max_len = max(max_len, right - left + 1)
+
+    return max_len
+
+print(check_longest_sub_k("aaaabcddddddddekhjkh", 4))
