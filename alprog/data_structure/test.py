@@ -1,4 +1,7 @@
 # LESSON 1
+from heapq import nlargest
+
+
 def two_sum(nums, target):
     seen = {}
 
@@ -505,7 +508,7 @@ def longest_sub_k(s: str, k: int) -> int:
 
     return max_len
 
-print(longest_sub_k("gdhjagshdgajhsg", 6))
+# print(longest_sub_k("gdhjagshdgajhsg", 6))
 
 
 def check_a2(s:str) -> int:
@@ -615,4 +618,112 @@ def check_longest_sub_k(s: str, k: int) -> int:
 
     return max_len
 
-print(check_longest_sub_k("aaaabcddddddddekhjkh", 4))
+# print(check_longest_sub_k("aaaabcddddddddekhjkh", 4))
+
+
+# LESSON 1/2/3
+
+
+def p_check(s: str) -> bool:
+    s = s.replace(" ","").lower()
+
+    left, right = 0, len(s) - 1
+
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
+
+    return True
+
+
+def a_check(s1: str, s2: str) -> bool:
+    s1 = s1.replace(" ","").lower()
+    s2 = s2.replace(" ","").lower()
+
+    if len(s1) != len(s2):
+        return False
+
+    count = {}
+
+    for char in s1:
+        count[char] = count.get(char, 0) + 1
+
+    for char in s2:
+        if char not in count:
+            return False
+        count[char] -= 1
+        if count[char] < 0:
+            return False
+
+    return True
+
+
+def long_sub(s: str) -> int:
+    s = s.replace(" ", "").lower()
+
+    char_d = {}
+    left = 0
+    max_length = 0
+
+    for right, char in enumerate(s):
+        if char in char_d:
+            left = max(left, char_d[char] + 1)
+        char_d[char] = right
+        max_length = max(max_length, right - left + 1)
+
+    return max_length
+
+
+def long_sub_k(s: str, k: int) -> int:
+    s = s.replace(" ", "").lower()
+
+    char_dictionary = {}
+    left = 0
+    max_length = 0
+
+    for right, char in enumerate(s):
+        char_dictionary[char] = char_dictionary.get(char, 0) + 1
+        while len(char_dictionary) > k:
+            char_left = s[left]
+            char_dictionary[char_left] -= 1
+            if char_dictionary[char_left] == 0:
+                del char_dictionary[char_left]
+            left += 1
+        max_length = max(max_length, right - left + 1)
+
+    return max_length
+
+
+from collections import *
+
+def count_ann(words: list[str]) -> list[str]:
+    anagrams = defaultdict(list)
+
+    for word in words:
+        count = [0] * 26
+        for char in word:
+            count[ord(char) - ord("a")] += 1
+        anagrams[tuple(count)].append(word)
+    return list(anagrams.values())
+
+words = ["eat", "tea", "tan", "ate", "nat", "bat"]
+# print(count_ann(words))
+
+
+def most_n(nums: list[int], k: int) -> list[int]:
+    count = Counter(nums)
+    return [num for num, freq in count.most_common(k)]
+
+# nums = [1,1,1,1,11,2,1,1,1,1,11,11,11,2,2,3,4,455,5,5,55,57,7]
+# print(most_n(nums, 3))
+
+import heapq
+
+def most_n_heap(nums: list[int], k: int) -> list[int]:
+    count = Counter(nums)
+    return heapq.nlargest(k, count.keys(), key=count.get)
+
+# nums = [1,1,1,1,11,2,1,1,1,1,11,11,11,2,2,3,4,455,5,5,55,57,7]
+# print(most_n_heap(nums, 3))
