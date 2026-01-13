@@ -727,3 +727,38 @@ def most_n_heap(nums: list[int], k: int) -> list[int]:
 
 # nums = [1,1,1,1,11,2,1,1,1,1,11,11,11,2,2,3,4,455,5,5,55,57,7]
 # print(most_n_heap(nums, 3))
+
+
+
+def group_a(words: list[str]) -> list[str]:
+    anagrams = defaultdict(list)
+
+    for word in words:
+        count = [0] * 26
+        for char in word:
+            count[ord(char) - ord("a")] += 1
+        anagrams[tuple(count)].append(word)
+    return list(anagrams.values())
+
+# words = ["eat", "tea", "tan", "ate", "nat", "bat"]
+# print(group_a(words))
+
+
+def most_n(nums: list[int], k: int) -> list[int]:
+    if not nums or k <= 0:
+        return []
+    count = Counter(nums)
+    return [num for num, freq in count.most_common(k)]
+
+def most_n_heap(nums: list[int], k: int) -> list[int]:
+    if not nums or k <= 0:
+        return []
+    count = Counter(nums)
+    return heapq.nlargest(k, count.keys(), key=count.get)
+
+
+# nums = []
+# print(most_n(nums,2))
+# print(most_n_heap(nums,2))
+
+
