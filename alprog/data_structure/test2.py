@@ -136,3 +136,109 @@ class Stack2:
 # print(st.size())
 
 
+# LESSON 4/5
+
+def check_valid_p(s: str) -> bool:
+    stack = []
+    pairs = {
+        ")": "(",
+        "]": "[",
+        "}": "{"
+    }
+
+    for char in s:
+        if char in pairs.values():
+            stack.append(char)
+        else:
+            if not stack or stack[-1] != pairs[char]:
+                return False
+            stack.pop()
+
+    return not stack
+
+# s = "([{}])" #true
+# print(check_valid_p(s))
+
+class Stack3:
+    def __init__(self):
+        self.items = []
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def size(self):
+        return len(self.items)
+
+    def peek(self):
+        if not self.is_empty():
+            return self.items[-1]
+        return None
+
+
+    def push(self, item):
+        return self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            self.items.pop()
+        return None
+
+
+# s = Stack3()
+#
+# s.push(10)
+# s.push(20)
+# s.push(30)
+#
+# print(s.size())
+# print(s.peek())
+#
+# s.pop()
+#
+# print(s.size())
+# print(s.peek())
+
+import heapq
+
+class PriorityQueue:
+    def __init__(self):
+        self.heap = []
+
+    def is_empty(self):
+        return len(self.heap) == 0
+
+    def size(self):
+        return len(self.heap)
+
+    def peek(self):
+        if self.heap:
+            return self.heap[0][1]
+        return None
+
+
+    def push(self, priority, item):
+        heapq.heappush(self.heap, (priority, item))
+
+    def pop(self):
+        if self.heap:
+            priority, item = heapq.heappop(self.heap)
+            return item
+        return None
+
+# p = PriorityQueue()
+#
+# p.push(1, "Leonid")
+# p.push(3, "Elena")
+# p.push(7, "Pavel")
+# p.push(1, "Natasha")
+#
+# print(p.size())
+# print(p.peek())
+#
+# p.pop()
+#
+# print(p.size())
+# print(p.peek())
+
+
+
